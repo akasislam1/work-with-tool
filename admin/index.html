@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin | Work With Tools</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+<!-- Step 1: connect to GitHub -->
+<main id="connectView" class="center">
+  <form id="connectForm" class="card connect" autocomplete="off">
+    <div class="brand"><span class="mark">W</span> Work With Tools <span class="tag">Admin</span></div>
+    <h1>Connect to GitHub</h1>
+    <p class="muted">This panel saves your changes straight to your GitHub repository. Vercel then updates the live site automatically. Nothing is sent anywhere else.</p>
+
+    <label class="field"><span>Repository</span>
+      <input id="repoInput" type="text" placeholder="your-username/your-repo" required spellcheck="false">
+    </label>
+    <label class="field"><span>Branch <em>(leave empty to detect)</em></span>
+      <input id="branchInput" type="text" placeholder="main" spellcheck="false">
+    </label>
+    <label class="field"><span>Access token</span>
+      <input id="tokenInput" type="password" placeholder="github_pat_..." required spellcheck="false">
+    </label>
+    <label class="check"><input id="rememberInput" type="checkbox"><span>Remember me on this device</span></label>
+    <button class="btn primary wide" id="connectBtn" type="submit">Connect</button>
+
+    <details class="help">
+      <summary>How do I get a token?</summary>
+      <ol>
+        <li>Open <strong>github.com/settings/personal-access-tokens/new</strong></li>
+        <li>Under <strong>Repository access</strong>, choose <strong>Only select repositories</strong> and pick this site's repo.</li>
+        <li>Under <strong>Permissions &rarr; Repository permissions</strong>, set <strong>Contents</strong> to <strong>Read and write</strong>.</li>
+        <li>Generate the token, copy it and paste it above.</li>
+      </ol>
+      <p class="muted">The token is the key to this panel. Anyone without it can open this page but cannot change anything. Never share it.</p>
+    </details>
+  </form>
+</main>
+
+<!-- Step 2: the panel -->
+<div id="appView" hidden>
+  <header class="top">
+    <div class="brand"><span class="mark">W</span> Admin <span class="muted" id="repoLabel"></span></div>
+    <div class="top-actions">
+      <button class="btn" id="discardBtn" type="button">Discard changes</button>
+      <button class="btn primary" id="publishBtn" type="button" disabled>Publish changes</button>
+      <button class="btn ghost" id="disconnectBtn" type="button">Disconnect</button>
+    </div>
+  </header>
+  <nav class="tabs" id="tabs" role="tablist">
+    <button type="button" role="tab" data-tab="tools" aria-selected="true">Tools</button>
+    <button type="button" role="tab" data-tab="cats" aria-selected="false">Categories</button>
+    <button type="button" role="tab" data-tab="site" aria-selected="false">Site text</button>
+  </nav>
+  <main class="wrap" id="panel"></main>
+</div>
+
+<div id="modalRoot"></div>
+<script src="admin.js"></script>
+</body>
+</html>

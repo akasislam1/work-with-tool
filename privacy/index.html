@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy Policy | Work With Tools</title>
+<meta name="description" content="How Work With Tools handles information.">
+<meta name="theme-color" content="#1f4bd8">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body class="wt-home">
+<div class="wt-bar"><a class="wt-logo" href="/"><span class="wt-mark">W</span>Work With Tools</a><a class="wt-all" href="/">All tools</a></div>
+<main class="wt-doc">
+<h1>Privacy Policy</h1>
+<p class="wt-upd">Last updated: October 28, 2026</p>
+<p>This page explains, in plain words, what happens to your information when you use Work With Tools. Questions? Contact <span id="contact">the site owner</span>.</p>
+
+<h2>Your files</h2>
+<p>The tools run inside your own browser. The images and PDFs you choose are processed on your device and are <strong>not uploaded</strong> to our servers.</p>
+
+<h2>Visit statistics</h2>
+<p>We count visits so we know which tools people use. We record the page, your country, whether you use a phone or a computer, and the website you came from. We do not use cookies for this and we do not store your IP address. To count unique visitors we use a one-way code made from your IP address and browser details together with the date and a secret; it changes every day and cannot be turned back into your address. If your browser sends &ldquo;Do Not Track&rdquo;, we do not count your visit.</p>
+
+<h2>Free-plan limits</h2>
+<p>To apply the daily limits of the free plan we keep a counter of how many files were added to each tool today. It is tied to the same kind of one-way code and is deleted after about two days. A similar counter is kept in your browser&rsquo;s storage.</p>
+
+<h2>Accounts (optional)</h2>
+<p>You only need an account to buy Premium. We store your email address and your password in scrambled (hashed) form; we cannot read your password. We use one cookie to keep you signed in. You can sign out at any time. To have your account deleted, contact us.</p>
+
+<h2>Payments</h2>
+<p>Premium payments are checked by hand. When you ask for Premium you upload a screenshot of your payment and may add a reference. We use it only to check the payment and delete the screenshot as soon as we have decided. We keep a short record of the request (plan, amount, payment method, date and result). We do not receive or store your card number.</p>
+
+<h2>Emails</h2>
+<p>We send an email to tell you whether your payment was approved. We do not send marketing emails.</p>
+
+<h2>Advertising</h2>
+<p>Free visitors may see ads. Advertising companies can use cookies or similar technology to show and measure ads; their own privacy policies apply. Premium members do not see ads.</p>
+
+<h2>Your choices</h2>
+<p>You can block cookies in your browser, turn on &ldquo;Do Not Track&rdquo;, or ask us to see or delete the information we hold about you.</p>
+
+<h2>Changes</h2>
+<p>If we change how we handle information we will update this page.</p>
+</main>
+<script src="/assets/tools.js"></script>
+<script src="/assets/site.js"></script>
+<script>
+fetch('/api/acct?action=plans').then(function (r) { return r.json(); }).then(function (d) {
+  var el = document.getElementById('contact');
+  if (el && d.contact && /^[^\s@]+@[^\s@]+$/.test(d.contact)) { var a = document.createElement('a'); a.href = 'mailto:' + d.contact; a.textContent = d.contact; el.replaceChildren(a); }
+}).catch(function () {});
+</script>
+</body>
+</html>

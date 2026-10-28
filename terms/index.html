@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Terms of Use | Work With Tools</title>
+<meta name="description" content="The rules for using Work With Tools and Premium.">
+<meta name="theme-color" content="#1f4bd8">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body class="wt-home">
+<div class="wt-bar"><a class="wt-logo" href="/"><span class="wt-mark">W</span>Work With Tools</a><a class="wt-all" href="/">All tools</a></div>
+<main class="wt-doc">
+<h1>Terms of Use</h1>
+<p class="wt-upd">Last updated: October 28, 2026</p>
+<p>By using Work With Tools you agree to these terms. Questions? Contact <span id="contact">the site owner</span>.</p>
+
+<h2>The free plan</h2>
+<p>The tools are free to use without an account. The free plan has limits on the number and size of files, shown on the Premium page. We may change these limits.</p>
+
+<h2>Premium</h2>
+<p>Premium removes the free-plan limits and the ads for the period you paid for. It does not renew by itself: when the time is over you return to the free plan, and you can pay again at any time. A new payment adds its days on top of the time you have left.</p>
+
+<h2>How payment works</h2>
+<p>You pay using one of the methods shown on the Premium page, upload a screenshot of the payment, and we check it by hand. Premium starts when we approve the request. This can take some time. We may decline a request if we cannot confirm the payment, and we will tell you why.</p>
+
+<h2>Refunds</h2>
+<p>Because payments are checked by hand and access starts once approved, refunds are decided case by case. If something went wrong, please contact us and we will try to help.</p>
+
+<h2>Fair use</h2>
+<p>Please do not try to get around the limits, attack or overload the site, or use it for anything unlawful. We may suspend an account that does.</p>
+
+<h2>Your files and your responsibility</h2>
+<p>Files are processed on your own device. Keep a copy of your originals; you are responsible for what you create and for having the right to use your files.</p>
+
+<h2>No warranty</h2>
+<p>The tools are provided &ldquo;as is&rdquo;, without promises that they will always be available or error-free. To the extent the law allows, we are not responsible for losses that come from using them.</p>
+
+<h2>Changes</h2>
+<p>We may update these terms. If you keep using the site after a change, you accept the new terms.</p>
+</main>
+<script src="/assets/tools.js"></script>
+<script src="/assets/site.js"></script>
+<script>
+fetch('/api/acct?action=plans').then(function (r) { return r.json(); }).then(function (d) {
+  var el = document.getElementById('contact');
+  if (el && d.contact && /^[^\s@]+@[^\s@]+$/.test(d.contact)) { var a = document.createElement('a'); a.href = 'mailto:' + d.contact; a.textContent = d.contact; el.replaceChildren(a); }
+}).catch(function () {});
+</script>
+</body>
+</html>
